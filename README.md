@@ -1,7 +1,7 @@
 # <p align="center">FlowDAO</p>
 
 <p align="center">
-  <img src="/Users/parthkaran/.gemini/antigravity/brain/208e056c-af74-4744-aba6-e914d517cfc8/flowdao_professional_banner_1775727819935.png" alt="FlowDAO Banner" width="100%">
+  <img src="./docs/images/banner.png" alt="FlowDAO Banner" width="100%">
 </p>
 
 <p align="center">
@@ -38,17 +38,17 @@ FlowDAO empowers decentralized communities to manage shared treasuries with abso
 #### 🏠 Landing Page
 The entry point to the FlowDAO ecosystem, featuring real-time on-chain activity tickers and dynamic governance headlines.
 
-![Landing Page](/Users/parthkaran/.gemini/antigravity/brain/208e056c-af74-4744-aba6-e914d517cfc8/homepage_hero_1775727901534.png)
+![Landing Page](./docs/images/homepage.png)
 
 #### 🛠️ Professional Feature Suite
 Detailed exploration of our platform's capabilities, from programmable timelocks to audit trails.
 
-![Features Page](/Users/parthkaran/.gemini/antigravity/brain/208e056c-af74-4744-aba6-e914d517cfc8/features_page_hero_1775727885733.png)
+![Features Page](./docs/images/features.png)
 
 #### 🤝 Mission & Transparency
 Our commitment to standardizing decentralized governance across the Stellar network.
 
-![About Page](/Users/parthkaran/.gemini/antigravity/brain/208e056c-af74-4744-aba6-e914d517cfc8/about_page_hero_1775727931979.png)
+![About Page](./docs/images/about.png)
 
 ---
 
@@ -63,7 +63,7 @@ Our commitment to standardizing decentralized governance across the Stellar netw
 
 ```bash
 # Clone the vision
-git clone https://github.com/pkaranbe25/trustcert.git
+git clone https://github.com/parth1241/flowdao.git
 cd flowdao
 
 # Install dependencies
