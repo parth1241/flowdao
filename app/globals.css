@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 212 100% 3%; /* #00080f */
+    --foreground: 0 0% 100%;
+    --card: 212 100% 5%; /* #000d1a */
+    --card-foreground: 0 0% 100%;
+    --popover: 212 100% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 199 89% 48%; /* #0ea5e9 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 92% 60%; /* #38bdf8 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 212 100% 10%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 212 100% 10%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 343 88% 60%; /* #f43f5e */
+    --destructive-foreground: 0 0% 100%;
+    --border: 199 89% 48% / 0.15;
+    --input: 199 89% 48% / 0.15;
+    --ring: 199 89% 48%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-base text-foreground font-safari antialiased min-h-screen relative overflow-x-hidden;
+  }
+  
+  /* Background dot grid */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image: radial-gradient(rgba(14, 165, 233, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  /* Ambient blobs */
+  .ambient-blobs {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: -2;
+    overflow: hidden;
+  }
+  .ambient-blobs::before,
+  .ambient-blobs::after,
+  .ambient-blobs-3 {
+    content: '';
+    position: absolute;
+    filter: blur(120px);
+    opacity: 0.15;
+    border-radius: 50%;
+  }
+  .ambient-blobs::before {
+    top: -10%; left: -10%;
+    width: 600px; height: 600px;
+    background: #0ea5e9; /* Sky */
+  }
+  .ambient-blobs::after {
+    top: 20%; right: -10%;
+    width: 500px; height: 500px;
+    background: #6366f1; /* Indigo */
+  }
+  .ambient-blobs-3 {
+    bottom: -10%; right: 10%;
+    width: 450px; height: 450px;
+    background: #8b5cf6; /* Violet */
+  }
+}
+
+@layer components {
+  /* Text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sky-500 via-indigo-500 to-violet-500;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    @apply relative overflow-hidden bg-gradient-to-r from-sky-500 to-indigo-500 text-white font-medium px-4 py-2 rounded-md transition-all duration-300;
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.8);
+    transform: translateY(-1px);
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-sky-500/50 text-sky-400 font-medium px-4 py-2 rounded-md transition-all duration-300;
+  }
+  .btn-secondary:hover {
+    @apply border-sky-500 bg-sky-500/10;
+  }
+  
+  /* Cards */
+  .card-surface {
+    @apply bg-surface border border-sky-500/15 rounded-xl;
+  }
+  .card-elevated {
+    @apply bg-elevated border border-sky-500/20 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)];
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:border-sky-500/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(14,165,233,0.1)];
+  }
+  
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border;
+  }
+  .badge-sky { @apply bg-sky-500/10 text-sky-400 border-sky-500/20; }
+  .badge-indigo { @apply bg-indigo-500/10 text-indigo-400 border-indigo-500/20; }
+  .badge-violet { @apply bg-violet-500/10 text-violet-400 border-violet-500/20; }
+  .badge-fuchsia { @apply bg-fuchsia-500/10 text-fuchsia-400 border-fuchsia-500/20; }
+  .badge-amber { @apply bg-amber-500/10 text-amber-400 border-amber-500/20; }
+  .badge-rose { @apply bg-rose-500/10 text-rose-400 border-rose-500/20; }
+  
+  /* Inputs */
+  .input-field {
+    @apply w-full bg-base border border-sky-500/15 rounded-md px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-sky-500 focus:border-sky-500 transition-colors placeholder:text-muted-foreground;
+  }
+  
+  /* Progress bars */
+  .progress-bar-fill {
+    @apply bg-gradient-to-r from-sky-500 to-indigo-500 h-full rounded-full transition-all duration-500 ease-out;
+  }
+  
+  /* Other UI elements */
+  .font-mono-hash {
+    font-family: var(--font-jetbrains-mono), monospace;
+    @apply text-sm tracking-wider text-muted-foreground;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(14, 165, 233, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 165, 233, 0.6);
+}
+
+/* Confetti canvas */
+canvas.confetti-canvas {
+  position: fixed !important;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 100;
+}
