@@ -35,7 +35,7 @@ export default function LandingPage() {
               Governance Powered by Soroban
             </div>
             
-            <h1 className="text-5xl md:text-8xl font-black mb-6 leading-tight min-h-[1.2em] md:min-h-[1.2em]">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black mb-6 leading-tight min-h-[1.2em] md:min-h-[1.2em] italic">
               <span className="gradient-text transition-all duration-500">{headlines[headlineIdx]}</span>
             </h1>
             

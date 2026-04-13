@@ -5,6 +5,9 @@ import { useTreasuryBalance } from "@/hooks/useTreasuryBalance";
 import { TreasuryChart } from "@/components/shared/TreasuryChart";
 import { DashboardSkeleton } from "@/components/shared/DashboardSkeleton";
 import Link from "next/link";
+import { Activity } from "lucide-react";
+import WalletManager from '@/components/shared/WalletManager';
+import SendXLMPanel from '@/components/shared/SendXLMPanel';
 
 interface Proposal {
   _id: string;
@@ -83,6 +86,36 @@ export default function AdminDashboard() {
           <p className="text-3xl font-bold text-amber-400 break-words font-mono-hash">
              {data.dao?.governanceToken?.distributed?.toLocaleString()} FLOW
           </p>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+      {/* Stellar Wallet Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-1">
+          <WalletManager />
+        </div>
+        <div className="lg:col-span-1">
+          <SendXLMPanel compact />
+        </div>
+        <div className="lg:col-span-1">
+          <div className="card-surface bg-emerald-500/5 hover:bg-emerald-500/10 p-8 flex flex-col items-center justify-center text-center space-y-5 h-full relative overflow-hidden group">
+             <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+             <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-xl shadow-emerald-500/10 transition-transform group-hover:scale-110">
+                <Activity size={32} className="animate-pulse" />
+             </div>
+             <div>
+                <h3 className="text-sm font-black text-white uppercase tracking-[0.2em] italic">Governance Pulse</h3>
+                <p className="text-[10px] text-muted-foreground mt-2 font-bold uppercase tracking-widest leading-relaxed">Identity Verified on Ledger<br/>Consensus Authority Active</p>
+             </div>
+             <div className="w-full h-px bg-white/5" />
+             <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                <div className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                <span className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Protocol: Operational</span>
+             </div>
+          </div>
         </div>
       </div>
 
